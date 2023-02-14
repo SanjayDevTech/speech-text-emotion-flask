@@ -18,6 +18,10 @@ temp_dir = os.path.join(located_dir,"temp")
 if(not os.path.exists(temp_dir)):
     os.mkdir(temp_dir)
 
+@app.get('/health')
+def health():
+    return "OK"
+
 @app.get('/temp')
 def temp():
     return send_file(os.path.join(temp_dir,"tempaudio.wav"), mimetype="audio/wav", download_name="tempaudio.wav")
